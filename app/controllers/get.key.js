@@ -12,7 +12,8 @@ const getKeyFromDb = async(params) => {
     try {
         const { key_name } = params;
         let key = await Key.findOne({
-            name: key_name
+            name: key_name,
+            ttl: { $gte: moment() }
         });
         if (key) {
             logger.info('Cache Hit');

@@ -4,7 +4,7 @@ import config from '../../config';
 const Key = require('../models/Key');
 
 
-const getKeysFromDb = async(params) => {
+const getKeysFromDb = async() => {
     const defer = Q.defer();
     try {
         const keys = await Key.find();
@@ -24,8 +24,7 @@ const getKeysFromDb = async(params) => {
 
 async function getKeys(req, res) {
     try {
-        const { params } = req;
-        const keys_data = await getKeysFromDb(params);
+        const keys_data = await getKeysFromDb();
         res.status(200).json({
             keys_data
         });
