@@ -7,8 +7,8 @@ Getting Started
 Please ensure you have Node Js installed.
 
 ```
-  1.  git clone https://github.com/akinmaurice/thanos-check.git
-  2.  cd thanos-check
+  1.  git clone https://github.com/akinmaurice/cacheAPI.git
+  2.  cd cacheAPI
   3.  Provide the MongoDB connection string: Example:
 
     export DATABASE_DEV_URL=mongodb://127.0.0.1:27017/cache
