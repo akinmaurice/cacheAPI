@@ -8,7 +8,7 @@ const Key = require('../../app/models/Key');
 const Data = require('../../app/models/Data');
 
 
-const createKeyData = rewire('../../app/controllers/create.data.js');
+const createKeyData = rewire('../../app/controllers/cache/create.data.js');
 
 const should = chai.should();
 const { expect } = chai;

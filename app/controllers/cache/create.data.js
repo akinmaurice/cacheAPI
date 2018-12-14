@@ -1,9 +1,9 @@
 import Q from 'q';
-import config from '../../config';
-import checkRequestBody from '../utils/request.body.verifier';
+import config from '../../../config';
+import checkRequestBody from '../../utils/request.body.verifier';
 
-const Key = require('../models/Key');
-const Data = require('../models/Data');
+const Key = require('../../models/Key');
+const Data = require('../../models/Data');
 
 
 const checkRequest = (body) => {

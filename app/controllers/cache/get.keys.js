@@ -1,14 +1,14 @@
 import Q from 'q';
-import config from '../../config';
+import config from '../../../config';
 
-const Key = require('../models/Key');
+const Key = require('../../models/Key');
 
 
-const deleteKeysFromDb = async() => {
+const getKeysFromDb = async() => {
     const defer = Q.defer();
     try {
-        await Key.remove({});
-        defer.resolve('Removed all keys');
+        const keys = await Key.find();
+        defer.resolve(keys);
     } catch (e) {
         logger.error('Get-Keys-Error', e, {
             serviceName: config.serviceName
@@ -22,9 +22,9 @@ const deleteKeysFromDb = async() => {
 };
 
 
-async function deleteKeys(req, res) {
+async function getKeys(req, res) {
     try {
-        const keys_data = await deleteKeysFromDb();
+        const keys_data = await getKeysFromDb();
         res.status(200).json({
             keys_data
         });
@@ -36,4 +36,4 @@ async function deleteKeys(req, res) {
 }
 
 
-export default deleteKeys;
+export default getKeys;

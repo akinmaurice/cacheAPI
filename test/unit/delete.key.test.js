@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const Key = require('../../app/models/Key');
 
 
-const deleteKey = rewire('../../app/controllers/delete.key.js');
-const deleteKeys = rewire('../../app/controllers/delete.all.keys.js');
+const deleteKey = rewire('../../app/controllers/cache/delete.key.js');
+const deleteKeys = rewire('../../app/controllers/cache/delete.all.keys.js');
 
 const should = chai.should();
 const { expect } = chai;

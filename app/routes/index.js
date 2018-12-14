@@ -1,10 +1,10 @@
 import express from 'express';
-import getKeys from '../controllers/get.keys';
-import getKey from '../controllers/get.key';
-import createKeyData from '../controllers/create.data';
-import deleteKeys from '../controllers/delete.all.keys';
-import deleteKey from '../controllers/delete.key';
-import updateKeyData from '../controllers/update.data';
+import getKeys from '../controllers/cache/get.keys';
+import getKey from '../controllers/cache/get.key';
+import createKeyData from '../controllers/cache/create.data';
+import deleteKeys from '../controllers/cache/delete.all.keys';
+import deleteKey from '../controllers/cache/delete.key';
+import updateKeyData from '../controllers/cache/update.data';
 
 const router = express.Router();
 

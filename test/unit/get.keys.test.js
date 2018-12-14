@@ -5,7 +5,7 @@ import rewire from 'rewire';
 const Key = require('../../app/models/Key');
 
 
-const getKeys = rewire('../../app/controllers/get.keys.js');
+const getKeys = rewire('../../app/controllers/cache/get.keys.js');
 
 const should = chai.should();
 const { expect } = chai;

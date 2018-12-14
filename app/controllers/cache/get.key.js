@@ -1,10 +1,10 @@
 import Q from 'q';
 import moment from 'moment';
 import crypto from 'crypto';
-import config from '../../config';
+import config from '../../../config';
 
-const Key = require('../models/Key');
-const Data = require('../models/Data');
+const Key = require('../../models/Key');
+const Data = require('../../models/Data');
 
 
 const getKeyFromDb = async(params) => {
