@@ -4,6 +4,7 @@ import getKey from '../controllers/get.key';
 import createKeyData from '../controllers/create.data';
 import deleteKeys from '../controllers/delete.all.keys';
 import deleteKey from '../controllers/delete.key';
+import updateKeyData from '../controllers/update.data';
 
 const router = express.Router();
 
@@ -42,6 +43,12 @@ router.delete(
 router.delete(
     '/keys/:key_name',
     deleteKey
+);
+
+
+router.put(
+    '/keys/:key_name/:data_id',
+    updateKeyData
 );
 
 export default router;
