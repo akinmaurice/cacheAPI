@@ -2,6 +2,7 @@ import express from 'express';
 import getKeys from '../controllers/get.keys';
 import getKey from '../controllers/get.key';
 import createKeyData from '../controllers/create.data';
+import deleteKeys from '../controllers/delete.all.keys';
 
 const router = express.Router();
 
@@ -28,6 +29,12 @@ router.get(
 router.post(
     '/keys/:key_name',
     createKeyData
+);
+
+
+router.delete(
+    '/keys',
+    deleteKeys
 );
 
 
