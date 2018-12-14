@@ -60,11 +60,10 @@ const createData = async(body, key_name) => {
     const defer = Q.defer();
     try {
         const { message } = body;
-        const data = new Data({
+        await Data.create({
             key: key_name,
             message
         });
-        await data.save();
         defer.resolve('Data Added');
     } catch (e) {
         logger.error('Add-Data-Error', e, {
