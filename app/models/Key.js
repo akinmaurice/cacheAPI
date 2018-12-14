@@ -4,15 +4,11 @@ const { Schema } = mongoose;
 mongoose.Promise = global.Promise;
 const mongodbErrorHandler = require('mongoose-mongodb-errors');
 
-const cacheSchema = new Schema({
+const keySchema = new Schema({
     name: {
         type: String,
-        required: 'Please provide a cache name',
+        required: 'Please provide a key name',
         trim: true
-    },
-    description: {
-        type: String,
-        required: 'Please provide a description of the cache'
     },
     created: {
         type: Date,
@@ -22,6 +18,6 @@ const cacheSchema = new Schema({
 });
 
 
-cacheSchema.plugin(mongodbErrorHandler);
+keySchema.plugin(mongodbErrorHandler);
 
-module.exports = mongoose.model('Cache', cacheSchema);
+module.exports = mongoose.model('Key', keySchema);

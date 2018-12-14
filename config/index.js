@@ -7,7 +7,9 @@ import production from './env/production';
 
 const extend = (util)._extend;
 const defaults = {
-    root: path.normalize(`${__dirname}/..`)
+    root: path.normalize(`${__dirname}/..`),
+    ttlTime: 1, // Hours,
+    cacheKeyLimit: 100
 };
 
 const environment = {

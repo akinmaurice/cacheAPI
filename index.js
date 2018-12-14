@@ -9,10 +9,12 @@ import expressConfig from './config/express';
 mongoose.connect(config.DATABASE_URL);
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
-  logger.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
+    logger.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
 });
 
-require('./app/models/Cache');
+
+require('./app/models/Key');
+require('./app/models/Data');
 
 const port = process.env.PORT || 3023;
 const app = express();
