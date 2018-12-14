@@ -12,5 +12,12 @@ RUN npm install
 # Bundle app source
 COPY . /usr/src/cacheApi
 
+ENV NODE_ENV development
+
+
+EXPOSE 3023
+
+
 CMD ["npm", "start"]
+
 
