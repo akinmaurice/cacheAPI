@@ -31,8 +31,12 @@ const getKeyFromDb = async(params) => {
             defer.resolve(keyData);
         } else {
             logger.info('Cache Miss');
+            // Check if the limit of keys has been reached
             const keyCount = await Key.count();
             if (keyCount >= config.cacheKeyLimit) {
+            // If Limit has been reached, get the oldest key in the cache
+            // by the ttl and time it was created
+            // Overwrite this key
                 let oldKey = await Key.findOne().sort({
                     ttl: 1,
                     created: 1
