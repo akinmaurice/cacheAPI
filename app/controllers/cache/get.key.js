@@ -2,6 +2,10 @@ import Q from 'q';
 import moment from 'moment';
 import crypto from 'crypto';
 import config from '../../../config';
+import loggerInit from '../../../config/logger';
+
+const logger = loggerInit('development');
+
 
 const Key = require('../../models/Key');
 const Data = require('../../models/Data');
@@ -53,16 +57,16 @@ const getKeyFromDb = async(params) => {
                 defer.resolve(oldKey.name);
             } else {
                 const randomString = crypto.randomBytes(20).toString('hex');
-                const newKey = new Key({
+                await Key.create({
                     name: randomString,
                     ttl: moment().add(config.ttlTime, 'hour')
                 });
-                await newKey.save();
                 defer.resolve(randomString);
             }
         }
     } catch (e) {
-        logger.error('Get-Keys-Error', e, {
+        console.log(e);
+        console.log('Get-Keys-Error', e, {
             serviceName: config.serviceName
         });
         defer.reject({
