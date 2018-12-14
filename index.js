@@ -6,7 +6,9 @@ import config from './config';
 import expressConfig from './config/express';
 
 
-mongoose.connect(config.DATABASE_URL);
+mongoose.connect(config.DATABASE_URL, {
+    useMongoClient: true
+});
 mongoose.Promise = global.Promise;
 mongoose.connection.on('error', (err) => {
     logger.error(`🙅 🚫 🙅 🚫 🙅 🚫 🙅 🚫 → ${err.message}`);
